@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Question 6</title>
+    <question>
+Starting from the answer for question 5
+Adds each square’s data to a JS object called “box_container”, each object should include
+<ul>
+<li>
+    Its ID property.</li>
+<li>position (X and Y). </li>
+<li>color</li>
+
+</ul>
+    </question>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+<style>
+    body{
+        height: 100vh;
+    }
+    .all_boxes{
+        position: absolute;
+        height: 100px;
+        width: 100px;
+    }
+</style>
+<script>
+var num_squares = Math.random()*10+5;
+var div_height = 100;
+var div_width = 100;
+var body = $('body');
+var max_width = body.width()-div_height;
+var max_height = body.height()-div_height;
+    
+var box_container={};    
+
+for(var i = 0; i<num_squares; i++)
+{
+    var random_x = Math.random()*max_width;
+    var random_y = Math.random()*max_height;
+    var colorR = Math.floor(Math.random()*255);
+    var colorG = Math.floor(Math.random()*255);
+    var colorB = Math.floor(Math.random()*255);
+    var div = $("<div>",{id:'box_'+i}).addClass('all_boxes').css({
+        left: random_x+"px",
+        top: random_y+"px",
+        'background': 'rgb('+colorR+','+colorG+','+colorB+')'
+    });
+    var name='box_'+i;
+    box_container[name]={};
+    box_container[name].x=random_x;
+    box_container[name].y=random_y;
+    box_container[name].color= div.css('background-color');
+    box_container[name].pointer=div;
+    console.log('rgb('+colorR+','+colorG+','+colorB+')');
+    //console.log(div);
+    body.append(div);
+}
+console.log(box_container);
+</script>
+
+
+
+</body>
+</html>

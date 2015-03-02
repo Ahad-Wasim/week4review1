@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Question 4</title>
+    <question>
+Write a set of jQuery statements
+<ul>
+<li>That hides all paragraphs that are immediate children of a div with a class of “displaydata”. </li> 
+    <li>Then show all inputs that are anywhere inside a div, and add a class called “visible_input” to it.</li>
+</ul>
+    </question>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+    
+<script>
+    $("div.displaydata > p").hide();
+    $("div input").addClass('visible_input');
+</script>
+
+
+
+</body>
+</html>

@@ -7,11 +7,16 @@
 Using either jQuery or core JS (jQuery preferred):
 <ul>
 <li>
-    Add a random number (between 5 and 15) of 100px x 100px divs to the body of a page.</li>
-<li>Each div should have a random position within the body (<a href="http://api.jquery.com/width/">hint</a>). </li>
-<li>Each div should be a different random background color (<a href="http://www.w3.org/wiki/CSS/Properties/color/RGB">hint</a>)</li>
-<li>Each div should have a unique ID for later reference</li>
-
+    Add a random number of divs to the body, positioned randomly around the screen.
+    <ul>
+        <li>
+            Count: (between 5 and 15) of 
+            Size: 100px x 100px </li>
+        <li>Each div should have a random position(<a href="http://api.jquery.com/width/">hint to find the size of the body, or specify a fixed size</a>). </li>
+        <li>Each div should be a different random background color (<a href="http://www.w3.org/wiki/CSS/Properties/color/RGB">hint</a>)</li>
+        <li>Each div should have a unique ID for later reference</li>
+    </ul>
+</li>
 </ul>
     </question>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -32,7 +37,7 @@ var num_squares = Math.random()*10+5;
 var div_height = 100;
 var div_width = 100;
 var body = $('body');
-var max_width = body.width()-div_height;
+var max_width = body.width()-div_width;
 var max_height = body.height()-div_height;
 for(var i = 0; i<num_squares; i++)
 {
@@ -41,10 +46,11 @@ for(var i = 0; i<num_squares; i++)
     var colorR = Math.floor(Math.random()*255);
     var colorG = Math.floor(Math.random()*255);
     var colorB = Math.floor(Math.random()*255);
-    var div = $("<div>",{id:'box_'+i}).addClass('all_boxes').css({
+    var div = $("<div>",{id:'box_'+i}).addClass('all_boxes').css(
+    {
         left: random_x+"px",
         top: random_y+"px",
-        'background': 'rgb('+colorR+','+colorG+','+colorB+')'
+        backgroundColor: 'rgb('+colorR+','+colorG+','+colorB+')'
     });
     console.log('rgb('+colorR+','+colorG+','+colorB+')');
     //console.log(div);
